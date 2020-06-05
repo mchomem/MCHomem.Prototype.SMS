@@ -27,15 +27,15 @@ This file contains the credentials to use Twilio API.
 
 The format of the content is the following:
 
-(row 1) A=[Number phone of Twilio]
-(row 2) B=[User]
-(row 3) C=[Password]
+(row 1) A=[Number phone of Twilio]<br>
+(row 2) B=[User]<br>
+(row 3) C=[Password]<br>
 
 Example:
 
-A=+12712560519
-B=g38rh359w8h72hg9g82yth
-C=24090euh3nh9d8b2ejgd92hqs8yg2qhbf
+A=+12712560519<br>
+B=g38rh359w8h72hg9g82yth<br>
+C=24090euh3nh9d8b2ejgd92hqs8yg2qhbf<br>
 
 
 
