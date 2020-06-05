@@ -19,6 +19,26 @@ Below is a list of binaries and programs that must be installed:
 
 ![Initial screen](/docs/img/sms-sender.png)
 
+## Usage
+
+First of all, to use the Twilio API, simply create an account at [Twilio](https://www.twilio.com/)
+It's necessary a simple text file called Twilio.txt on the root of binary (.exe).
+This file contains the credentials to use Twilio API.
+
+The format of the content is the following:
+
+(row 1) A=[Number phone of Twilio]
+(row 2) B=[User]
+(row 3) C=[Password]
+
+Example:
+
+A=+12712560519
+B=g38rh359w8h72hg9g82yth
+C=24090euh3nh9d8b2ejgd92hqs8yg2qhbf
+
+
+
 ## License
 
 This project is licensed under the GNU GENERAL PUBLIC LICENSE - see the [LICENSE](LICENSE) file for details
