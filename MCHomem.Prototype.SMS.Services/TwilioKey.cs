@@ -9,14 +9,7 @@ namespace MCHomem.Prototype.SMS.Services
         {
             try
             {
-                String appPath = String.Format(@"{0}{1}", AppDomain.CurrentDomain.BaseDirectory, "Data");
-
-                if (!Directory.Exists(appPath))
-                {
-                    throw new Exception("Data directory don't exists. Check the instalation.");
-                }
-
-                String fullFilePath = String.Format(@"{0}\{1}", appPath, "Twilio.txt");
+                String fullFilePath = String.Format(@"{0}{1}", AppDomain.CurrentDomain.BaseDirectory, "Twilio.txt");
 
                 if (!File.Exists(fullFilePath))
                 {
