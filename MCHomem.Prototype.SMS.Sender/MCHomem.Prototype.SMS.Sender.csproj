@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmConfigureCredentials.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConfigureCredentials.Designer.cs">
+      <DependentUpon>FrmConfigureCredentials.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSMSSender.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmConfigureCredentials.resx">
+      <DependentUpon>FrmConfigureCredentials.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmSMSSender.resx">
       <DependentUpon>FrmSMSSender.cs</DependentUpon>
     </EmbeddedResource>
@@ -88,6 +97,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\phone.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cog_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

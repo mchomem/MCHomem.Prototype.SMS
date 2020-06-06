@@ -5,18 +5,51 @@ namespace MCHomem.Prototype.SMS.Services
 {
     public static class TwilioKey
     {
+        #region Properties
+
+        private static String DefautlFileName
+        {
+            get { return "Twilio.txt"; }
+        }
+
+        private static String DefaultPathApp
+        {
+            get { return AppDomain.CurrentDomain.BaseDirectory; }
+        }
+
+        private static String DefaultFullPath
+        {
+            get { return String.Format(@"{0}{1}", DefaultPathApp, DefautlFileName); }
+        }
+
+        public static Boolean IsExistsFile
+        {
+            get
+            {
+                return (File.Exists(DefaultFullPath));
+            }
+        }
+
+        #endregion
+
+        #region Constructors
+
+        static TwilioKey() {}
+
+        #endregion
+
+        #region Methods
+
         public static String Read(String key)
         {
             try
             {
-                String fullFilePath = String.Format(@"{0}{1}", AppDomain.CurrentDomain.BaseDirectory, "Twilio.txt");
-
-                if (!File.Exists(fullFilePath))
+                if (!File.Exists(DefaultFullPath))
                 {
-                    throw new Exception("File don't exsits. Check the instalation.");
+                    CreateEmptyFile();
                 }
 
-                using (StreamReader sr = new StreamReader(fullFilePath))
+                using (StreamReader sr = new StreamReader(DefaultFullPath))
                 {
                     String line = null;
 
@@ -36,5 +69,34 @@ namespace MCHomem.Prototype.SMS.Services
                 throw e;
             }
         }
+
+        public static void Save(String keyA, String keyB, String keyC)
+        {
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(DefaultFullPath))
+                {
+                    sw.WriteLine("A={0}", keyA);
+                    sw.WriteLine("B={0}", keyB);
+                    sw.WriteLine("C={0}", keyC);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        private static void CreateEmptyFile()
+        {
+            using (StreamWriter sw = new StreamWriter(DefaultFullPath))
+            {
+                sw.WriteLine("A=");
+                sw.WriteLine("B=");
+                sw.WriteLine("C=");
+            }
+        }
+
+        #endregion
     }
 }

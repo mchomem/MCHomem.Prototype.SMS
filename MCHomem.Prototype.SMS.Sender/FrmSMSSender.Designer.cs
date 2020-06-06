@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSMSSender));
             this.lblMaxCharacter = new System.Windows.Forms.Label();
             this.cbServices = new System.Windows.Forms.ComboBox();
@@ -37,16 +38,18 @@
             this.txtMessage = new System.Windows.Forms.TextBox();
             this.txtDestiyPhone = new System.Windows.Forms.TextBox();
             this.lblDestinyPhone = new System.Windows.Forms.Label();
+            this.btnConfigurarCredenciais = new System.Windows.Forms.Button();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // lblMaxCharacter
             // 
             this.lblMaxCharacter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMaxCharacter.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblMaxCharacter.Location = new System.Drawing.Point(14, 118);
+            this.lblMaxCharacter.Location = new System.Drawing.Point(15, 118);
             this.lblMaxCharacter.Name = "lblMaxCharacter";
-            this.lblMaxCharacter.Size = new System.Drawing.Size(234, 20);
-            this.lblMaxCharacter.TabIndex = 15;
+            this.lblMaxCharacter.Size = new System.Drawing.Size(233, 20);
+            this.lblMaxCharacter.TabIndex = 4;
             this.lblMaxCharacter.Text = "0";
             this.lblMaxCharacter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -56,8 +59,8 @@
             this.cbServices.FormattingEnabled = true;
             this.cbServices.Location = new System.Drawing.Point(15, 166);
             this.cbServices.Name = "cbServices";
-            this.cbServices.Size = new System.Drawing.Size(112, 21);
-            this.cbServices.TabIndex = 14;
+            this.cbServices.Size = new System.Drawing.Size(85, 21);
+            this.cbServices.TabIndex = 6;
             // 
             // lblServices
             // 
@@ -65,15 +68,15 @@
             this.lblServices.Location = new System.Drawing.Point(14, 150);
             this.lblServices.Name = "lblServices";
             this.lblServices.Size = new System.Drawing.Size(48, 13);
-            this.lblServices.TabIndex = 13;
+            this.lblServices.TabIndex = 5;
             this.lblServices.Text = "Services";
             // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(140, 165);
+            this.btnSend.Location = new System.Drawing.Point(182, 165);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(108, 23);
-            this.btnSend.TabIndex = 12;
+            this.btnSend.Size = new System.Drawing.Size(66, 23);
+            this.btnSend.TabIndex = 8;
             this.btnSend.Text = "Send SMS";
             this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Click += new System.EventHandler(this.BtnSend_Click);
@@ -84,7 +87,7 @@
             this.lblMessage.Location = new System.Drawing.Point(12, 49);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(50, 13);
-            this.lblMessage.TabIndex = 11;
+            this.lblMessage.TabIndex = 2;
             this.lblMessage.Text = "Message";
             // 
             // txtMessage
@@ -94,7 +97,7 @@
             this.txtMessage.Multiline = true;
             this.txtMessage.Name = "txtMessage";
             this.txtMessage.Size = new System.Drawing.Size(233, 50);
-            this.txtMessage.TabIndex = 10;
+            this.txtMessage.TabIndex = 3;
             this.txtMessage.TextChanged += new System.EventHandler(this.txtMessage_TextChanged);
             // 
             // txtDestiyPhone
@@ -102,7 +105,7 @@
             this.txtDestiyPhone.Location = new System.Drawing.Point(15, 26);
             this.txtDestiyPhone.Name = "txtDestiyPhone";
             this.txtDestiyPhone.Size = new System.Drawing.Size(233, 20);
-            this.txtDestiyPhone.TabIndex = 9;
+            this.txtDestiyPhone.TabIndex = 1;
             // 
             // lblDestinyPhone
             // 
@@ -110,14 +113,26 @@
             this.lblDestinyPhone.Location = new System.Drawing.Point(12, 10);
             this.lblDestinyPhone.Name = "lblDestinyPhone";
             this.lblDestinyPhone.Size = new System.Drawing.Size(75, 13);
-            this.lblDestinyPhone.TabIndex = 8;
+            this.lblDestinyPhone.TabIndex = 0;
             this.lblDestinyPhone.Text = "Destiny phone";
+            // 
+            // btnConfigurarCredenciais
+            // 
+            this.btnConfigurarCredenciais.Image = global::MCHomem.Prototype.SMS.Sender.Properties.Resources.cog;
+            this.btnConfigurarCredenciais.Location = new System.Drawing.Point(106, 165);
+            this.btnConfigurarCredenciais.Name = "btnConfigurarCredenciais";
+            this.btnConfigurarCredenciais.Size = new System.Drawing.Size(23, 23);
+            this.btnConfigurarCredenciais.TabIndex = 7;
+            this.btnConfigurarCredenciais.UseVisualStyleBackColor = true;
+            this.btnConfigurarCredenciais.Click += new System.EventHandler(this.btnConfigurarCredenciais_Click);
+            this.btnConfigurarCredenciais.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnSetup_MouseMove);
             // 
             // FrmSMSSender
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(260, 199);
+            this.Controls.Add(this.btnConfigurarCredenciais);
             this.Controls.Add(this.lblMaxCharacter);
             this.Controls.Add(this.cbServices);
             this.Controls.Add(this.lblServices);
@@ -133,6 +148,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SMS Sender";
             this.Load += new System.EventHandler(this.FrmSMSSender_Load);
+            this.Move += new System.EventHandler(this.FrmSMSSender_Move);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,6 +164,8 @@
         private System.Windows.Forms.TextBox txtMessage;
         private System.Windows.Forms.TextBox txtDestiyPhone;
         private System.Windows.Forms.Label lblDestinyPhone;
+        private System.Windows.Forms.Button btnConfigurarCredenciais;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }
 

@@ -22,7 +22,7 @@ Below is a list of binaries and programs that must be installed:
 ## Usage
 
 First of all, to use the Twilio API, simply create an account at [Twilio](https://www.twilio.com/)
-It's necessary a simple text file called Twilio.txt on the root of binary (.exe).
+It's necessary a simple text file called Twilio.txt * on the root of binary (.exe).
 This file contains the credentials to use Twilio API.
 
 The format of the content is the following:
@@ -37,7 +37,7 @@ A=+12712560519<br>
 B=g38rh359w8h72hg9g82yth<br>
 C=24090euh3nh9d8b2ejgd92hqs8yg2qhbf<br>
 
-
+* When this file doesn't exist, the system automatically create him.
 
 ## License
 

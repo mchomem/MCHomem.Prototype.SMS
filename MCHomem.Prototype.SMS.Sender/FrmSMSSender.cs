@@ -8,6 +8,12 @@ namespace MCHomem.Prototype.SMS.Sender
 {
     public partial class FrmSMSSender : Form
     {
+        #region Fields
+
+        public static FrmConfigureCredentials frmConfigureCredentials = null;
+
+        #endregion
+
         #region Construtors
 
         public FrmSMSSender()
@@ -23,6 +29,25 @@ namespace MCHomem.Prototype.SMS.Sender
         {
             this.LoadServices();
             this.LoadFormFields();
+        }
+
+        private void FrmSMSSender_Move(object sender, EventArgs e)
+        {
+            ApplyFXRomeoAndJuliet();
+        }
+
+        private void btnSetup_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.toolTip.SetToolTip
+                (
+                    this.btnConfigurarCredenciais
+                    , String.Format("Setup {0} credentials", (this.cbServices.Text != String.Empty ? this.cbServices.Text : "a"))
+                );
+        }
+
+        private void btnConfigurarCredenciais_Click(object sender, EventArgs e)
+        {
+            this.ShowFormConfigurarCredenciais();
         }
 
         private void BtnSend_Click(object sender, EventArgs e)
@@ -69,7 +94,7 @@ namespace MCHomem.Prototype.SMS.Sender
         private void LoadFormFields()
         {
             this.txtDestiyPhone.Text = "+5551997400267";
-            this.txtMessage.Text = "Olá! Isso é um teste de envio de SMS!";
+            this.txtMessage.Text = "Hello! This is a test for send SMS.";
             this.txtDestiyPhone.Select(0, 0);
         }
 
@@ -123,6 +148,26 @@ namespace MCHomem.Prototype.SMS.Sender
                         , MessageBoxButtons.OK
                         , MessageBoxIcon.Error
                     );
+            }
+        }
+
+        private void ShowFormConfigurarCredenciais()
+        {
+            if(frmConfigureCredentials == null)
+            {
+                frmConfigureCredentials = new FrmConfigureCredentials();
+                frmConfigureCredentials.Top = this.Top;
+                frmConfigureCredentials.Left = this.Left + this.Width;
+                frmConfigureCredentials.Show();
+            }
+        }
+
+        private void ApplyFXRomeoAndJuliet()
+        {
+            if (frmConfigureCredentials != null)
+            {
+                frmConfigureCredentials.Top = this.Top;
+                frmConfigureCredentials.Left = this.Left + this.Width;
             }
         }
 
